@@ -28,4 +28,16 @@
   .btn-secondary {
     @apply px-6 py-3 border-2 border-purple-500 text-purple-500 font-semibold rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-300;
   }
+  
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, #8b5cf6, #2dd4bf);
+    border-radius: 1rem;
+    padding: 3px;
+  }
+  
+  .gradient-border-inner {
+    border-radius: calc(1rem - 3px);
+    overflow: hidden;
+  }
 }

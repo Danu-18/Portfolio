@@ -59,8 +59,7 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="py-20 bg-white dark:bg-slate-900 transition-colors duration-300"
-    >
+className="relative py-20 overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:bg-none transition-colors duration-300"    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -127,8 +126,8 @@ export function ProjectsSection() {
                   className="w-full lg:w-1/2"
                 >
                   <div className="gradient-border">
-                    <div className="gradient-border-inner bg-white dark:bg-slate-800 aspect-video overflow-hidden">
-                      <img
+<div className="gradient-border-inner bg-white dark:bg-slate-800 aspect-[16/10] overflow-hidden">
+  <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover"
