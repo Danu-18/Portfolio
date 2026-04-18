@@ -37,16 +37,16 @@ export function FooterContact() {
           {/* Social Icons */}
           <div className="flex justify-center gap-6">
             {/* Email Icon */}
-            <motion.a
-              href="mailto:daniyal@example.com"
-              className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition duration-300 group"
-              whileHover={{
-                scale: 1.1,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-            >
+         <motion.a
+  href="mailto:daniyalarif2004@gmail.com" 
+  className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition duration-300 group"
+  whileHover={{
+    scale: 1.1,
+  }}
+  whileTap={{
+    scale: 0.95,
+  }}
+>
               <CiMail 
                 size={22} 
                 className="text-gray-700 dark:text-gray-300 group-hover:text-neon-indigo transition-colors duration-300"
@@ -55,7 +55,7 @@ export function FooterContact() {
 
             {/* GitHub Icon */}
             <motion.a
-              href="https://github.com/daniyal-arif"
+              href="https://github.com/Danu-18"
               target="_blank"
               rel="noreferrer"
               className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition duration-300 group"
@@ -74,7 +74,7 @@ export function FooterContact() {
 
             {/* LinkedIn Icon */}
             <motion.a
-              href="https://linkedin.com/in/daniyal-arif"
+              href="https://www.linkedin.com/in/daniyal-arif-dev/"
               target="_blank"
               rel="noreferrer"
               className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition duration-300 group"

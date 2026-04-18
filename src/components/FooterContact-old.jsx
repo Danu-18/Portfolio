@@ -6,19 +6,19 @@ export function FooterContact() {
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:daniyal@example.com',
+      href: 'daniyalarif2004@gmail.com',
       color: 'hover:text-neon-indigo',
     },
     {
       name: 'LinkedIn',
       icon: ExternalLink,
-      href: 'https://linkedin.com',
+      href: 'www.linkedin.com/in/daniyal-arif-dev',
       color: 'hover:text-neon-cyan',
     },
     {
       name: 'GitHub',
       icon: GitBranch,
-      href: 'https://github.com',
+      href: 'https://github.com/Danu-18',
       color: 'hover:text-neon-purple',
     },
   ]

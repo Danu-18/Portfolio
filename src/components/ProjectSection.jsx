@@ -13,32 +13,32 @@ export function ProjectsSection() {
     title: 'KarMuqabla Educational Platform',
     description: 'A comprehensive, production-level educational gaming platform combining web and native mobile experiences. Features robust role-based access control, gamified learning with real-time leaderboards, and extensive content management tools.',
     tech: ['Next.js 14', 'Laravel 8', 'Capacitor', 'Redux', 'MySQL'],
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
-    github: '#',
+    image: '/Karmuqbla.png',
+    github: 'https://bitbucket.org/karmuqabla/karmuqbala-react-web/src/master/',
     demo: '#',
   },
   {
     title: 'EduNex-AI Analytics Platform',
     description: 'An advanced educational analytics platform leveraging machine learning to predict student performance and analyze attendance patterns. Features a modern React frontend, Node.js authentication, and a Python FastAPI server for ML model processing.',
     tech: ['React.js', 'Node.js', 'Python (FastAPI)', 'MongoDB', 'Machine Learning'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-    github: '#',
+    image: '/EduNex.png',
+    github: 'https://github.com/Darakhshan08/Edupredict',
     demo: '#',
   },
   {
     title: 'BridgeLogic Systems',
     description: 'A modern digital agency website showcasing professional web development services. Built with a sophisticated Next.js architecture, featuring an elegant dark-themed interface, smooth Framer Motion animations, and static hosting optimization.',
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-    github: '#',
+    image: '/Bridelogistics.png',
+    github: 'https://github.com/Danu-18/BridgeLogicSystems',
     demo: '#',
   },
   {
     title: 'EventSphere Management',
     description: 'A comprehensive full-stack exhibition and event management platform. Streamlines the organization, booking, and execution of professional expos with secure role-based access control, real-time booth allocation, and JWT authentication.',
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
-    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
-    github: '#',
+    image: '/Eventsphere-Management.png',
+    github: 'https://github.com/Darakhshan08/EventSphere_Management',
     demo: '#',
   },
 ]
@@ -112,11 +112,11 @@ className="relative py-20 overflow-hidden bg-gradient-to-b from-gray-50 to-white
                   className="w-full lg:w-1/2"
                 >
                   <div className="gradient-border">
-<div className="gradient-border-inner bg-white dark:bg-slate-800 aspect-[16/10] overflow-hidden">
+<div className="gradient-border-inner bg-white dark:bg-slate-800 aspect-video overflow-hidden">
   <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                   </div>
@@ -230,7 +230,7 @@ className="relative py-20 overflow-hidden bg-gradient-to-b from-gray-50 to-white
                       className="px-8 py-3 bg-gradient-to-r from-neon-indigo via-neon-purple to-neon-cyan text-white font-semibold rounded-lg flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-neon-indigo/50"
                     >
                       <FaGithub size={20} className="text-white" />
-                      View GitHub Repo
+                      {project.github.includes('bitbucket') ? 'View Bitbucket' : 'View GitHub Repo'}
                     </motion.a>
                   </motion.div>
                 </div>

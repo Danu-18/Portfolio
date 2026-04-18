@@ -12,7 +12,7 @@ export function ExperienceSection() {
       type: 'work',
       title: 'Full-Stack Developer',
       organization: 'KarMuqabla',
-      period: '2022 - Present',
+      period: '2024 - Present',
       description:
         'Developed and maintained web and mobile applications using React, Next.js, Laravel, and Capacitor. Led the implementation of real-time features and REST API integrations.',
       skills: ['React', 'Next.js', 'Laravel', 'Capacitor'],
@@ -21,7 +21,7 @@ export function ExperienceSection() {
       type: 'work',
       title: 'MERN Stack Developer',
       organization: 'Vibrant Company',
-      period: '2021 - 2022',
+      period: '2023 - 2024',
       description:
         'Built scalable web applications using MongoDB, Express.js, React, and Node.js. Managed deployment pipelines and optimized application performance.',
       skills: ['Node.js', 'MongoDB', 'Web Deployment'],
@@ -30,25 +30,25 @@ export function ExperienceSection() {
       type: 'work',
       title: 'Freelance PHP Developer',
       organization: 'Upwork',
-      period: '2020 - 2021',
+      period: '2023 - 2023',
       description:
         'Delivered custom PHP solutions for various clients. Specialized in MySQL database design and Stripe payment gateway integrations.',
       skills: ['PHP', 'MySQL', 'Stripe API'],
     },
     {
-      type: 'education',
-      title: 'BSc (Hons) in Computing',
-      organization: 'University of Bolton',
-      period: '2018 - 2022',
-      description:
-        'Comprehensive study of computer science fundamentals, software engineering principles, and modern web technologies.',
-      skills: [],
-    },
+    type: 'education',
+    title: 'BSc (Hons) in Computing', 
+    organization: 'University of Bolton',
+    period: 'May 2026 - Expected 2027', 
+    description:
+      'Currently pursuing. Curriculum focused on advanced computer science fundamentals, software engineering principles, and modern web technologies.',
+    skills: ['Software Engineering', 'Web Technologies'], 
+  },
     {
       type: 'education',
       title: 'Diploma in Software Engineering',
       organization: 'Aptech',
-      period: '2016 - 2018',
+      period: '2022 - 2025',
       description:
         'Graduated with Distinction. Focused on programming fundamentals, database management, and software development lifecycle.',
       skills: [],

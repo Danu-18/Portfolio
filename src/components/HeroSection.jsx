@@ -163,7 +163,9 @@ export function HeroSection() {
               whileTap={{
                 scale: 0.95,
               }}
-              href="#"
+              href="/DANIYAL ARIF - Resume.pdf"
+              download="DANIYAL ARIF - Resume.pdf"
+              target="_blank"
               className="px-8 py-4 border-2 border-neon-purple text-neon-cyan font-semibold rounded-lg hover:bg-neon-purple/10 transition-all duration-300 flex items-center gap-2"
             >
               Download Resume

@@ -26,12 +26,18 @@ export function SkillsSection() {
       skills: ['PHP', 'Laravel', 'Node.js', 'Express.js', 'MySQL', 'MongoDB'],
       color: 'from-neon-purple to-neon-cyan',
     },
-    {
-      title: 'Tools',
-      icon: Box,
-      skills: ['Git', 'Web Deployment', 'Figma'],
-      color: 'from-neon-cyan to-neon-indigo',
-    },
+   {
+    title: 'Tools & Platforms', // Slightly upgraded title
+    icon: Box,
+    skills: [
+      'Git / GitHub', 
+      'Bitbucket', 
+      'Postman', 
+      'Vercel', // Replaces generic "Web Deployment"
+      'Figma'
+    ],
+    color: 'from-neon-cyan to-neon-indigo',
+  },
   ]
   const containerVariants = {
     hidden: {
