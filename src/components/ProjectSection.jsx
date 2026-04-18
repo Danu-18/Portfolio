@@ -9,53 +9,39 @@ export function ProjectsSection() {
     margin: '-100px',
   })
   const projects = [
-    {
-      title: 'E-Commerce Platform with Real-Time Inventory',
-      description:
-        'Built a full-stack e-commerce solution with Next.js frontend and Laravel backend. Features include real-time inventory tracking, Stripe payment integration, admin dashboard with analytics, and responsive product catalog with advanced filtering.',
-      tech: ['Next.js', 'Laravel', 'MySQL', 'Stripe API', 'Tailwind CSS'],
-      image:
-        'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=450&fit=crop',
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Social Media Dashboard with Analytics',
-      description:
-        'Developed a comprehensive social media management platform using MERN stack. Integrated multiple social APIs for post scheduling, engagement tracking, and detailed analytics visualization with interactive charts and real-time updates.',
-      tech: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'Chart.js'],
-      image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop',
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'Mobile-First Task Management App',
-      description:
-        'Created a cross-platform task management application using React and Capacitor. Features drag-and-drop task organization, team collaboration tools, push notifications, and offline-first architecture with data synchronization.',
-      tech: [
-        'React.js',
-        'Capacitor',
-        'TypeScript',
-        'Firebase',
-        'Framer Motion',
-      ],
-      image:
-        'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=450&fit=crop',
-      github: '#',
-      demo: '#',
-    },
-    {
-      title: 'AI-Powered Content Management System',
-      description:
-        'Engineered a modern CMS with AI-assisted content generation and SEO optimization. Built with PHP/Laravel backend, React frontend, and integrated OpenAI API for smart content suggestions and automated meta tag generation.',
-      tech: ['Laravel', 'React.js', 'PostgreSQL', 'OpenAI API', 'Redis'],
-      image:
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
-      github: '#',
-      demo: '#',
-    },
-  ]
+  {
+    title: 'KarMuqabla Educational Platform',
+    description: 'A comprehensive, production-level educational gaming platform combining web and native mobile experiences. Features robust role-based access control, gamified learning with real-time leaderboards, and extensive content management tools.',
+    tech: ['Next.js 14', 'Laravel 8', 'Capacitor', 'Redux', 'MySQL'],
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+    github: '#',
+    demo: '#',
+  },
+  {
+    title: 'EduNex-AI Analytics Platform',
+    description: 'An advanced educational analytics platform leveraging machine learning to predict student performance and analyze attendance patterns. Features a modern React frontend, Node.js authentication, and a Python FastAPI server for ML model processing.',
+    tech: ['React.js', 'Node.js', 'Python (FastAPI)', 'MongoDB', 'Machine Learning'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    github: '#',
+    demo: '#',
+  },
+  {
+    title: 'BridgeLogic Systems',
+    description: 'A modern digital agency website showcasing professional web development services. Built with a sophisticated Next.js architecture, featuring an elegant dark-themed interface, smooth Framer Motion animations, and static hosting optimization.',
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+    github: '#',
+    demo: '#',
+  },
+  {
+    title: 'EventSphere Management',
+    description: 'A comprehensive full-stack exhibition and event management platform. Streamlines the organization, booking, and execution of professional expos with secure role-based access control, real-time booth allocation, and JWT authentication.',
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS'],
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
+    github: '#',
+    demo: '#',
+  },
+]
   return (
     <section
       id="projects"
@@ -239,24 +225,12 @@ className="relative py-20 overflow-hidden bg-gradient-to-b from-gray-50 to-white
                         scale: 0.95,
                       }}
                       href={project.github}
-                      className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg flex items-center gap-2 transition-all duration-300"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-3 bg-gradient-to-r from-neon-indigo via-neon-purple to-neon-cyan text-white font-semibold rounded-lg flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-neon-indigo/50"
                     >
                       <FaGithub size={20} className="text-white" />
                       View GitHub Repo
-                    </motion.a>
-
-                    <motion.a
-                      whileHover={{
-                        scale: 1.05,
-                      }}
-                      whileTap={{
-                        scale: 0.95,
-                      }}
-                      href={project.demo}
-                      className="px-6 py-3 border-2 border-cyan-500 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-500/10 flex items-center gap-2 transition-all duration-300"
-                    >
-                      <PlayCircle size={20} />
-                      Watch Video Demo
                     </motion.a>
                   </motion.div>
                 </div>

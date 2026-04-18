@@ -10,6 +10,7 @@ import './App.css'
 
 function App() {
   return (
+    <main className="w-full overflow-x-hidden bg-white dark:bg-slate-950">
     <ThemeProvider>
       <div className="min-h-screen bg-gray-50 dark:bg-slate-900 text-slate-900 dark:text-white transition-colors duration-300">
         <Navbar />
@@ -22,6 +23,7 @@ function App() {
         <FooterContact />
       </div>
     </ThemeProvider>
+    </main>
   )
 }
 

@@ -55,7 +55,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl sm:max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{
             opacity: 0,
@@ -82,7 +82,7 @@ export function HeroSection() {
               delay: 0.2,
               duration: 0.8,
             }}
-            className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-center"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-center px-4"
           >
             Hi, I'm{' '}
             <span className="bg-gradient-to-r from-neon-indigo via-neon-purple to-neon-cyan bg-clip-text text-transparent">
@@ -103,7 +103,7 @@ export function HeroSection() {
               delay: 0.4,
               duration: 0.8,
             }}
-            className="text-xl md:text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-8 text-center"
+            className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 text-center px-4"
           >
             A Full-Stack Software Engineer building scalable web apps
           </motion.h2>
@@ -140,7 +140,7 @@ export function HeroSection() {
               delay: 0.8,
               duration: 0.8,
             }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-4 sm:mt-6 px-4"
           >
             <motion.button
               whileHover={{
