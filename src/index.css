@@ -3,41 +3,52 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #0f1424;
+  }
+
   body {
-    @apply bg-gray-50 dark:bg-slate-900 text-slate-900 dark:text-white;
+    background-color: #0f1424;
+    color: #f3ecdf;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    selection-background-color: #2aa198;
+    selection-color: #ffd8a8;
+  }
+
+  ::selection {
+    background-color: rgba(42, 161, 152, 0.4);
+    color: #ffd8a8;
+  }
+
+  /* Studio Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080c14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2aa198;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffd23f;
   }
 }
 
-@layer components {
-  .container-center {
-    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .section-padding {
-    @apply py-16 lg:py-20;
-  }
-  
-  .card {
-    @apply bg-white dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300;
-  }
-  
-  .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300;
-  }
-  
-  .btn-secondary {
-    @apply px-6 py-3 border-2 border-purple-500 text-purple-500 font-semibold rounded-lg hover:bg-purple-500 hover:text-white transition-all duration-300;
-  }
-  
-  .gradient-border {
-    position: relative;
-    background: linear-gradient(135deg, #8b5cf6, #2dd4bf);
-    border-radius: 1rem;
-    padding: 3px;
-  }
-  
-  .gradient-border-inner {
-    border-radius: calc(1rem - 3px);
-    overflow: hidden;
-  }
+/* Loader's exact grain keyframes */
+@keyframes atp-grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-31px, 17px); }
+  50% { transform: translate(23px, -27px); }
+  75% { transform: translate(-13px, -41px); }
+}
+
+@keyframes atp-swing {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(7deg); }
 }

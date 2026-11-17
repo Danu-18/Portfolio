@@ -1,102 +1,168 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { CiMail } from "react-icons/ci"
-import { FaGithub } from "react-icons/fa"
-import { FaLinkedinIn } from "react-icons/fa6"
+import { Mail, ArrowUp, Copy, Check, Send, Sparkles, MapPin, Clock, Download } from 'lucide-react'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
+import {
+  StudioTitle,
+  StudioCard,
+  StudioButton,
+  StudioPegs,
+  StudioMascot,
+} from './studio/StudioPrimitives'
 
-export function FooterContact() {
+export function FooterContact({ onReplayIntro }) {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('daniyalarif2004@gmail.com')
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2400)
+  }
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <footer className="w-full bg-gray-100 dark:bg-slate-900 py-12 border-t border-gray-200 dark:border-slate-800 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-        >
-          {/* Heading */}
-          <h3 className="text-2xl font-semibold mb-3 text-slate-900 dark:text-white">
-            Let's build something great together
-          </h3>
+    <footer id="contact" className="py-24 px-4 sm:px-6 lg:px-8 relative text-center">
+      <div className="max-w-5xl mx-auto">
+        <StudioPegs />
 
-          {/* Description */}
-          <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-          </p>
+        <StudioTitle
+          kicker="Let's Collaborate"
+          title="Connect"
+          connector="on"
+          name="The Next Production"
+        />
 
-          {/* Social Icons */}
-          <div className="flex justify-center gap-6">
-            {/* Email Icon */}
-         <motion.a
-  href="mailto:daniyalarif2004@gmail.com" 
-  className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition duration-300 group"
-  whileHover={{
-    scale: 1.1,
-  }}
-  whileTap={{
-    scale: 0.95,
-  }}
->
-              <CiMail 
-                size={22} 
-                className="text-gray-700 dark:text-gray-300 group-hover:text-neon-indigo transition-colors duration-300"
-              />
-            </motion.a>
+        <p className="max-w-2xl mx-auto text-sm sm:text-base font-mono text-[#8791a8] mt-2 mb-12">
+          // Have an ambitious product, engineering role, or contract in mind? Let's bring it to life.
+        </p>
 
-            {/* GitHub Icon */}
-            <motion.a
-              href="https://github.com/Danu-18"
-              target="_blank"
-              rel="noreferrer"
-              className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition duration-300 group"
-              whileHover={{
-                scale: 1.1,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-            >
-              <FaGithub 
-                size={22} 
-                className="text-gray-700 dark:text-gray-300 group-hover:text-black transition-colors duration-300"
-              />
-            </motion.a>
+        {/* Master Connect Card */}
+        <StudioCard sceneTag="SC. 06 — DIRECT CONNECT" frameTag="AVAILABLE NOW" className="p-8 sm:p-12 mb-16">
+          <div className="max-w-2xl mx-auto space-y-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#f3ecdf]">
+              Let's build something <span className="text-[#ffd23f]">extraordinary</span> together.
+            </h3>
 
-            {/* LinkedIn Icon */}
-            <motion.a
-              href="https://www.linkedin.com/in/daniyal-arif-dev/"
-              target="_blank"
-              rel="noreferrer"
-              className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md hover:shadow-lg hover:scale-110 transition duration-300 group"
-              whileHover={{
-                scale: 1.1,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-            >
-              <FaLinkedinIn 
-                size={22} 
-                className="text-gray-700 dark:text-gray-300 group-hover:text-blue-600 transition-colors duration-300"
-              />
-            </motion.a>
+            <p className="text-xs sm:text-sm text-[#8791a8] font-mono leading-relaxed">
+              I am open to full-stack engineering roles, technical contract builds, and ambitious SaaS architectures.
+            </p>
+
+            {/* Direct Email Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+              <StudioButton
+                href="mailto:daniyalarif2004@gmail.com"
+                variant="primary"
+                className="w-full sm:w-auto"
+              >
+                <Mail className="w-4 h-4 text-[#ffd8a8]" />
+                <span>daniyalarif2004@gmail.com</span>
+                <Send className="w-4 h-4 text-[#ffd23f]" />
+              </StudioButton>
+
+              <StudioButton
+                onClick={handleCopyEmail}
+                variant="secondary"
+                className="w-full sm:w-auto"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    <span className="text-emerald-300">Address Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 text-[#8791a8]" />
+                    <span>Copy Email</span>
+                  </>
+                )}
+              </StudioButton>
+            </div>
+
+            {/* Timezone & Availability HUD */}
+            <div className="pt-6 border-t border-[#8791a8]/20 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-mono text-[#8791a8]">
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#ffd23f]" />
+                <span>Karachi, PK (UTC+5)</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#2aa198]" />
+                <span>Available for Global Remote Teams</span>
+              </div>
+            </div>
+
+            {/* Social Connection Badges */}
+            <div className="pt-4 flex flex-wrap justify-center gap-3">
+              <a
+                href="https://github.com/Danu-18"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-xl bg-[#080c14] border border-[#8791a8]/30 hover:border-[#ffd23f] text-[#f3ecdf] text-xs font-mono flex items-center gap-2 transition-all hover:scale-105"
+              >
+                <FaGithub className="w-4 h-4 text-[#ffd8a8]" />
+                <span>GitHub @Danu-18</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/daniyal-arif-dev/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-xl bg-[#080c14] border border-[#8791a8]/30 hover:border-[#ffd23f] text-[#f3ecdf] text-xs font-mono flex items-center gap-2 transition-all hover:scale-105"
+              >
+                <FaLinkedinIn className="w-4 h-4 text-[#2aa198]" />
+                <span>LinkedIn @daniyal-arif-dev</span>
+              </a>
+
+              <a
+                href="/DANIYAL ARIF - Resume.pdf"
+                download="DANIYAL ARIF - Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="px-4 py-2 rounded-xl bg-[#080c14] border border-[#8791a8]/30 hover:border-[#ffd23f] text-[#f3ecdf] text-xs font-mono flex items-center gap-2 transition-all hover:scale-105"
+              >
+                <Download className="w-4 h-4 text-[#ffd23f]" />
+                <span>Resume PDF</span>
+              </a>
+            </div>
+
+            {/* Mascot wink at footer */}
+            <div className="pt-6 flex justify-center">
+              <StudioMascot size={64} />
+            </div>
+          </div>
+        </StudioCard>
+
+        {/* Studio Bottom Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-[#8791a8]/20 font-mono text-xs text-[#8791a8]">
+          <div className="flex items-center gap-2">
+            <span>© {new Date().getFullYear()} Daniyal Arif.</span>
+            <span>•</span>
+            <span>All rights reserved.</span>
           </div>
 
-          {/* Copyright */}
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-6">
-            © {new Date().getFullYear()} Daniyal Arif. All rights reserved.
-          </p>
-        </motion.div>
+          <div className="flex items-center gap-4">
+            {onReplayIntro && (
+              <button
+                onClick={onReplayIntro}
+                className="hover:text-[#ffd23f] transition-colors flex items-center gap-1.5"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#ffd23f]" />
+                <span>Replay Studio Intro</span>
+              </button>
+            )}
+
+            <button
+              onClick={scrollToTop}
+              className="p-2 rounded-lg bg-[#0f1424] border border-[#8791a8]/30 hover:border-[#ffd23f] text-[#f3ecdf] hover:text-[#ffd23f] transition-all flex items-center gap-1"
+              aria-label="Back to Top"
+            >
+              <ArrowUp className="w-4 h-4 text-[#ffd23f]" />
+              <span>Top</span>
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
   )

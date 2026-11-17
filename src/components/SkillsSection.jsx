@@ -1,159 +1,126 @@
-import React, { useRef, Children } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { Code, Database, Box } from 'lucide-react'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { StudioTitle, StudioCard, StudioPegs } from './studio/StudioPrimitives'
+
 export function SkillsSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, {
-    once: true,
-    margin: '-100px',
-  })
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      icon: Code,
-      skills: [
-        'React.js',
-        'Next.js',
-        'TypeScript',
-        'Tailwind CSS',
-        'HTML5/CSS3',
-      ],
-      color: 'from-neon-indigo to-neon-purple',
-    },
-    {
-      title: 'Backend & DB',
-      icon: Database,
-      skills: ['PHP', 'Laravel', 'Node.js', 'Express.js', 'MySQL', 'MongoDB'],
-      color: 'from-neon-purple to-neon-cyan',
-    },
-   {
-    title: 'Tools & Platforms', // Slightly upgraded title
-    icon: Box,
-    skills: [
-      'Git / GitHub', 
-      'Bitbucket', 
-      'Postman', 
-      'Vercel', // Replaces generic "Web Deployment"
-      'Figma'
-    ],
-    color: 'from-neon-cyan to-neon-indigo',
-  },
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const categories = [
+    { id: 'all', label: 'All Toolkit' },
+    { id: 'frontend', label: 'Frontend & UI' },
+    { id: 'backend', label: 'Backend & Data' },
+    { id: 'tools', label: 'DevOps & Mobile' },
   ]
-  const containerVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  }
+
+  const skillsData = [
+    // Frontend
+    { name: 'React.js', category: 'frontend', level: 'Production Core', exp: '3+ yrs', glyph: '⚛', color: '#2aa198' },
+    { name: 'Next.js', category: 'frontend', level: 'Full-Stack Core', exp: '2+ yrs', glyph: '▲', color: '#ffd23f' },
+    { name: 'TypeScript', category: 'frontend', level: 'Type-Safe Standards', exp: '2+ yrs', glyph: 'TS', color: '#2aa198' },
+    { name: 'Tailwind CSS', category: 'frontend', level: 'Design Systems', exp: '3+ yrs', glyph: '≈', color: '#ff5d73' },
+    { name: 'HTML5 / CSS3', category: 'frontend', level: 'Semantic Standards', exp: '4+ yrs', glyph: '</>', color: '#ffd23f' },
+    { name: 'Framer Motion', category: 'frontend', level: 'Fluid Animations', exp: '2+ yrs', glyph: '✦', color: '#ffd8a8' },
+
+    // Backend
+    { name: 'PHP', category: 'backend', level: 'Server-Side Core', exp: '3+ yrs', glyph: '🐘', color: '#ffd23f' },
+    { name: 'Laravel', category: 'backend', level: 'Enterprise MVC', exp: '2+ yrs', glyph: '◆', color: '#ff5d73' },
+    { name: 'Node.js', category: 'backend', level: 'Async APIs', exp: '2+ yrs', glyph: '⬢', color: '#2aa198' },
+    { name: 'Express.js', category: 'backend', level: 'REST Endpoints', exp: '2+ yrs', glyph: '⚡', color: '#8791a8' },
+    { name: 'MySQL', category: 'backend', level: 'Relational Schemas', exp: '3+ yrs', glyph: '🐬', color: '#2aa198' },
+    { name: 'MongoDB', category: 'backend', level: 'Document Store', exp: '2+ yrs', glyph: '🍃', color: '#ffd23f' },
+
+    // Tools & Mobile
+    { name: 'Git & GitHub', category: 'tools', level: 'Branching & CI/CD', exp: '3+ yrs', glyph: '⎇', color: '#ff5d73' },
+    { name: 'Bitbucket', category: 'tools', level: 'Version Control', exp: '2+ yrs', glyph: 'Bucket', color: '#2aa198' },
+    { name: 'Capacitor', category: 'tools', level: 'Hybrid Native iOS/Android', exp: '1+ yrs', glyph: '📱', color: '#ffd23f' },
+    { name: 'Postman', category: 'tools', level: 'API Testing & Mocks', exp: '3+ yrs', glyph: '🚀', color: '#ffd8a8' },
+    { name: 'Vercel', category: 'tools', level: 'Edge Deployment', exp: '2+ yrs', glyph: '▲', color: '#f3ecdf' },
+    { name: 'Figma', category: 'tools', level: 'UI/UX Specs to Code', exp: '2+ yrs', glyph: '❖', color: '#ff5d73' },
+  ]
+
+  const filteredSkills = activeFilter === 'all'
+    ? skillsData
+    : skillsData.filter((s) => s.category === activeFilter)
+
   return (
-    <section
-      id="skills"
-      className="section-padding"
-    >
-      <div>
-        <motion.div
-          ref={ref}
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          animate={
-            isInView
-              ? {
-                  opacity: 1,
-                  y: 0,
-                }
-              : {}
-          }
-          transition={{
-            duration: 0.6,
-          }}
-          className="text-center mb-10"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-neon-indigo to-neon-cyan bg-clip-text text-transparent">
-            Skills & Technologies
-          </h2>
-          <p className="text-slate-600 dark:text-gray-400 text-lg">
-            A comprehensive toolkit for building modern web applications
-          </p>
-        </motion.div>
+    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 relative text-center">
+      <div className="max-w-6xl mx-auto">
+        <StudioPegs />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
-          {skillCategories.map((category, categoryIndex) => {
-            const Icon = category.icon
+        <StudioTitle
+          kicker="Production Instruments"
+          title="Technologies"
+          connector="in"
+          name="The Toolkit"
+        />
+
+        <p className="max-w-2xl mx-auto text-sm sm:text-base font-mono text-[#8791a8] mt-2 mb-10">
+          // Every tool is dialed in for high performance, reliable deployment, and intuitive developer experience.
+        </p>
+
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {categories.map((cat) => {
+            const isActive = activeFilter === cat.id
             return (
-              <motion.div
-                key={category.title}
-                variants={itemVariants}
-                className="card p-6 hover:border-neon-purple/50"
+              <button
+                key={cat.id}
+                onClick={() => setActiveFilter(cat.id)}
+                className={`px-4 py-2 rounded-xl text-xs font-mono uppercase tracking-wider transition-all duration-200 ${
+                  isActive
+                    ? 'bg-[#2aa198]/30 text-[#ffd8a8] border border-[#f2c14e] font-bold shadow-lg shadow-[#2aa198]/20'
+                    : 'bg-[#0f1424]/90 text-[#8791a8] hover:text-[#f3ecdf] border border-[#8791a8]/30'
+                }`}
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div
-                    className={`p-3 rounded-lg bg-gradient-to-br ${category.color}`}
-                  >
-                    <Icon className="text-white" size={24} />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">
-                    {category.title}
-                  </h3>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.span
-                      key={skill}
-                      initial={{
-                        opacity: 0,
-                        scale: 0.8,
-                      }}
-                      animate={
-                        isInView
-                          ? {
-                              opacity: 1,
-                              scale: 1,
-                            }
-                          : {}
-                      }
-                      transition={{
-                        delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                        duration: 0.3,
-                      }}
-                      whileHover={{
-                        scale: 1.05,
-                        boxShadow: '0 0 20px rgba(168, 85, 247, 0.5)',
-                      }}
-                      className="px-4 py-2 bg-gray-100 dark:bg-slate-800 text-slate-600 dark:text-gray-300 rounded-full text-sm font-medium border border-gray-300 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-500 hover:text-slate-900 dark:hover:text-white transition-all duration-300 cursor-default"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
+                {cat.label}
+              </button>
             )
           })}
+        </div>
+
+        {/* Specimen Grid */}
+        <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-left">
+          <AnimatePresence>
+            {filteredSkills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.25, delay: index * 0.02 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="relative rounded-xl bg-[#0f1424]/95 border border-[#8791a8]/25 p-4 sm:p-5 flex flex-col justify-between hover:border-[#ffd23f]/70 hover:shadow-[0_0_20px_rgba(255,210,63,0.15)] transition-all group"
+              >
+                {/* Registration marker */}
+                <span className="absolute top-1.5 right-1.5 text-[9px] font-mono text-[#8791a8]/50">
+                  #{String(index + 1).padStart(2, '0')}
+                </span>
+
+                <div>
+                  <div className="text-xl sm:text-2xl mb-2 font-mono text-[#ffd8a8]">
+                    {skill.glyph}
+                  </div>
+
+                  <h3 className="font-bold text-sm sm:text-base text-[#f3ecdf] group-hover:text-[#ffd23f] transition-colors">
+                    {skill.name}
+                  </h3>
+
+                  <p className="text-[11px] font-mono text-[#8791a8] mt-1 line-clamp-1">
+                    {skill.level}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-2 border-t border-[#8791a8]/20 flex items-center justify-between text-[10px] font-mono">
+                  <span className="text-[#8791a8]">{skill.exp}</span>
+                  <span
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: skill.color }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>
