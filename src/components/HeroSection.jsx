@@ -10,6 +10,7 @@ import {
   StudioButton,
   StudioCard,
 } from './studio/StudioPrimitives'
+import { MagnetizeButton } from './ui/magnetize-button'
 
 export function HeroSection() {
   const [copied, setCopied] = useState(false)
@@ -141,10 +142,17 @@ const specs = {
           transition={{ duration: 0.8, delay: 0.65 }}
           className="flex flex-wrap items-center justify-center gap-4 mt-8"
         >
-          <StudioButton onClick={() => handleScrollTo('#projects')} variant="primary">
+          <MagnetizeButton
+            onClick={() => handleScrollTo('#projects')}
+            particleCount={14}
+            attractRadius={45}
+            particleClassName="bg-[#ffd23f]"
+            className="h-auto py-3 px-6 bg-gradient-to-r from-[#2aa198] via-[#16786f] to-[#0b4a4a] text-[#f3ecdf] border-[#f2c14e]/70 shadow-[0_4px_16px_rgba(42,161,152,0.35)] hover:shadow-[0_6px_24px_rgba(242,193,78,0.3)] hover:scale-[1.03] active:scale-[0.98] font-mono text-xs sm:text-sm uppercase tracking-wider rounded-xl font-semibold"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#f2c14e] mr-1" />
             <span>Explore Works</span>
-            <ArrowDown className="w-4 h-4 text-[#ffd23f]" />
-          </StudioButton>
+            <ArrowDown className="w-4 h-4 text-[#ffd23f] ml-1" />
+          </MagnetizeButton>
 
           <StudioButton
             href="/DANIYAL ARIF - Resume.pdf"

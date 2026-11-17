@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Layout, Database, Zap, Sparkles } from 'lucide-react'
 import { StudioTitle, StudioCard, StudioScriptText, StudioPegs } from './studio/StudioPrimitives'
+import { MagnetizeButton } from './ui/magnetize-button'
 
 export function AboutSection() {
   const pillars = [
@@ -109,12 +110,18 @@ export function AboutSection() {
                 </p>
               </div>
 
-              <a
-                href="#projects"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#2aa198] to-[#16786f] text-[#f3ecdf] font-mono text-xs uppercase tracking-wider font-semibold border border-[#f2c14e]/70 shadow-lg hover:scale-105 transition-transform whitespace-nowrap"
+              <MagnetizeButton
+                onClick={() => {
+                  const el = document.querySelector('#projects')
+                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                }}
+                particleCount={12}
+                attractRadius={40}
+                particleClassName="bg-[#ffd23f]"
+                className="h-auto py-3 px-6 bg-gradient-to-r from-[#2aa198] to-[#16786f] text-[#f3ecdf] font-mono text-xs uppercase tracking-wider font-semibold border-[#f2c14e]/70 shadow-lg hover:scale-105 transition-transform whitespace-nowrap rounded-xl"
               >
-                Inspect Works &rarr;
-              </a>
+                <span>Inspect Works &rarr;</span>
+              </MagnetizeButton>
             </div>
           </StudioCard>
         </motion.div>

@@ -9,6 +9,7 @@ import {
   StudioPegs,
   StudioMascot,
 } from './studio/StudioPrimitives'
+import { MagnetizeButton } from './ui/magnetize-button'
 
 export function FooterContact({ onReplayIntro }) {
   const [copied, setCopied] = useState(false)
@@ -52,15 +53,19 @@ export function FooterContact({ onReplayIntro }) {
 
             {/* Direct Email Action Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
-              <StudioButton
-                href="mailto:daniyalarif2004@gmail.com"
-                variant="primary"
-                className="w-full sm:w-auto"
+              <MagnetizeButton
+                onClick={() => {
+                  window.location.href = 'mailto:daniyalarif2004@gmail.com'
+                }}
+                particleCount={16}
+                attractRadius={55}
+                particleClassName="bg-[#ffd23f]"
+                className="h-auto py-3.5 px-6 bg-gradient-to-r from-[#2aa198] via-[#16786f] to-[#0b4a4a] text-[#f3ecdf] border-[#f2c14e]/70 shadow-[0_4px_16px_rgba(42,161,152,0.35)] hover:shadow-[0_6px_24px_rgba(242,193,78,0.3)] font-mono text-xs sm:text-sm uppercase tracking-wider rounded-xl font-semibold w-full sm:w-auto"
               >
-                <Mail className="w-4 h-4 text-[#ffd8a8]" />
+                <Mail className="w-4 h-4 text-[#ffd8a8] mr-1" />
                 <span>daniyalarif2004@gmail.com</span>
-                <Send className="w-4 h-4 text-[#ffd23f]" />
-              </StudioButton>
+                <Send className="w-4 h-4 text-[#ffd23f] ml-1" />
+              </MagnetizeButton>
 
               <StudioButton
                 onClick={handleCopyEmail}
